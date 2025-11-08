@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>wkeanu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col min-h-screen text-gray-800 font-sans">
+<header class="sticky top-0 z-20 border-b bg-white/80 backdrop-blur-sm">
+  <div class="max-w-5xl mx-auto flex justify-between items-center py-4 px-4">
+    <h1 class="text-xl font-bold">wkeanu</h1>
+    <button class="border px-3 py-1 rounded text-sm text-gray-600 hover:bg-gray-100">
+      uukeanu
+    </button>
+  </div>
+</header>
+
+
+  <main class="flex-grow max-w-4xl mx-auto px-4 py-12 text-center">
+<h2 class="text-4xl font-extrabold mb-4">
+  A corner of the internet i call mine.
+</h2>
+
+    <p class="text-gray-600 leading-relaxed max-w-3xl mx-auto">
+      Greetings, people. I don’t really know why you’re here — maybe curiosity, maybe boredom, maybe a wrong click.
+      But since you’ve made it this far, welcome to my corner of the internet. Here you’ll find my thoughts — sometimes deep,
+      sometimes nonsense, often somewhere in between.
+    </p>
+    <p class="italic text-sm text-gray-500 mt-4">
+      Fair warning tho: some of what I write might sting a little, so you might want to grab a helmet. Feelings are fragile
+      things, and honesty can be heavier than expected.
+    </p>
+
+<section id="posts" class="mt-12 text-left max-w-3xl mx-auto divide-y divide-gray-200">
+  <!-- List of posts will be injected here -->
+</section>
+
+  </main>
+
+  <footer class="border-t text-center text-sm text-gray-500 py-6">
+    © 2025 Got thoughts about my thoughts? DM me — I like a good discussion.
+  </footer>
+
+  <script>
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('header');
+  if (window.scrollY > 10) {
+    header.classList.add('backdrop-blur', 'bg-white/90');
+  } else {
+    header.classList.remove('backdrop-blur', 'bg-white/90');
+  }
+});
+</script>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
