@@ -2,7 +2,13 @@
   {
     "id": 1,
     "title": "Why wkeanu?",
-    "date": "2025-11-01",
+    "date": "2025-11-09",
+    "excerpt": "This is my first reflection post..."
+  },
+    {
+    "id": 2,
+    "title": "Why wkeanu?",
+    "date": "2025-11-09",
     "excerpt": "This is my first reflection post..."
   }
 ]
