@@ -1,16 +1,10 @@
 [
   {
     "id": 1,
-    "title": "My First Post",
-    "date": "2025-11-08",
-    "excerpt": "This is my very first blog post...",
-    "starred": true
-  },
-  {
-    "id": 2,
-    "title": "Another Article",
-    "date": "2025-11-07",
-    "excerpt": "Some thoughts about design and simplicity.",
-    "starred": false
+    "title": "Hello, human!",
+    "date": "2025-11-09",
+    "excerpt": "Just me trying to make sense of my thoughts — maybe you’ll relate.",
+    "starred": true,
+    "explicit": false
   }
 ]

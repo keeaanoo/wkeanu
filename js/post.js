@@ -7,7 +7,7 @@ if (!postId) {
   fetch(`posts/${postId}.json`)
     .then(res => res.json())
     .then(post => {
-      document.title = `${post.title} | wkeanu`;
+      document.title = `${post.title} - wkeanu`;
       const article = document.getElementById('post');
       article.innerHTML = `
         <h1 class="text-3xl md:text-4xl font-bold mb-2">${post.title}</h1>
