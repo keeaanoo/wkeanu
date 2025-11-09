@@ -6,13 +6,21 @@
   <title>wkeanu | Post</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
+
 <body class="flex flex-col min-h-screen bg-white text-gray-800 font-sans">
 
   <!-- Header -->
 <header class="sticky top-0 z-20 border-b bg-white/80 backdrop-blur-sm">
   <div class="max-w-5xl mx-auto flex justify-between items-center py-4 px-4">
-    <button onclick="history.back()" class="text-sm text-gray-600 hover:text-black">Back</button>
-    <a href="index.html" class="text-lg font-bold hover:underline">wkeanu</a>
+    <button onclick="history.back()" class="text-sm text-gray-600 hover:text-black">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+  stroke-width="2" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round"
+    d="M15.75 19.5L8.25 12l7.5-7.5" />
+</svg>
+</button>
+    <a href="index.html" class="text-lg font-extrabold">wk</a>
   </div>
 </header>
 
@@ -22,6 +30,23 @@
     <article id="post" class="opacity-0 transition-opacity duration-500 prose prose-neutral max-w-none text-left">
       <!-- Post content will be injected here -->
     </article>
+
+<div class="border-t pt-8 mt-12 flex items-center space-x-3">
+  <button id="share-btn"
+    class="inline-flex items-center space-x-2 text-gray-600 hover:text-black transition">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+      stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+      <path stroke-linecap="round" stroke-linejoin="round"
+        d="M7.5 13.5L3 9m0 0l4.5-4.5M3 9h12a6 6 0 0 1 6 6v6" />
+    </svg>
+    <span class="text-sm font-medium">Share</span>
+  </button>
+
+  <span id="copied-msg" class="hidden text-sm text-green-600">Link copied!</span>
+</div>
+
+
+
   </main>
 
   <!-- Footer -->
@@ -30,5 +55,24 @@
   </footer>
 
   <script src="js/post.js"></script>
+  <script>
+  const shareBtn = document.getElementById('share-btn');
+  const copiedMsg = document.getElementById('copied-msg');
+
+  shareBtn.addEventListener('click', async () => {
+    const url = window.location.href;
+    try {
+      await navigator.clipboard.writeText(url);
+      copiedMsg.classList.remove('hidden');
+      copiedMsg.textContent = 'Link copied!';
+      setTimeout(() => copiedMsg.classList.add('hidden'), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+      copiedMsg.textContent = 'Error copying!';
+      copiedMsg.classList.remove('hidden');
+    }
+  });
+</script>
+
 </body>
 </html>

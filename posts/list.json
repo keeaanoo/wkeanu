@@ -1,14 +1,16 @@
 [
   {
     "id": 1,
-    "title": "Why wkeanu?",
-    "date": "2025-11-09",
-    "excerpt": "This is my first reflection post..."
+    "title": "My First Post",
+    "date": "2025-11-08",
+    "excerpt": "This is my very first blog post...",
+    "starred": true
   },
-    {
+  {
     "id": 2,
-    "title": "Why wkeanu?",
-    "date": "2025-11-09",
-    "excerpt": "This is my first reflection post..."
+    "title": "Another Article",
+    "date": "2025-11-07",
+    "excerpt": "Some thoughts about design and simplicity.",
+    "starred": false
   }
 ]
