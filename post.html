@@ -50,7 +50,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="border-t text-center text-sm text-gray-500 py-8">
+  <footer class="border-t bg-gray-80 text-center text-sm text-gray-500 py-6">
     © 2025 wkeanu
   </footer>
 
@@ -65,7 +65,7 @@
       await navigator.clipboard.writeText(url);
       copiedMsg.classList.remove('hidden');
       copiedMsg.textContent = 'Link copied!';
-      setTimeout(() => copiedMsg.classList.add('hidden'), 2000);
+      setTimeout(() => copiedMsg.classList.add('hidden'), 4000);
     } catch (err) {
       console.error('Failed to copy:', err);
       copiedMsg.textContent = 'Error copying!';
