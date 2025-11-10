@@ -41,6 +41,14 @@ article.innerHTML = `
       </div>
     ` : ''}
 
+        ${post.edited ? `
+      <div class="flex items-center gap-2 bg-white-50 border border-black-400 
+                  text-black w-fit px-3 py-1 rounded-lg whitespace-nowrap">
+        <img src="./assets/audio.svg" alt="Audio available" class="w-4 h-4" />
+        <span class="text-sm">Edited</span>
+      </div>
+    ` : ''}
+
   </div>
 
   <h1 class="text-3xl md:text-4xl font-bold mb-2">${post.title}</h1>

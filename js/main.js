@@ -7,7 +7,7 @@ container.innerHTML = posts.map(post => `
   <div class="flex items-center justify-between">
     <h3 class="text-lg font-bold text-gray-800 hover:text-black">${post.title}</h3>
     
-    <div class="flex items-center space-x-2 ml-2">
+    <div class="grid-2 grid items-center space-x-2 ml-2">
       ${post.starred ? `
         <span class="relative group inline-block">
           <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
