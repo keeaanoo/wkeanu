@@ -9,12 +9,12 @@ if (!postId) {
     .then(post => {
       document.title = `${post.title} - wkeanu`;
       const article = document.getElementById('post');
-      article.innerHTML = `
-  <div class="flex items-center gap-2 mb-8">
+article.innerHTML = `
+  <div class="flex flex-wrap items-center gap-2 mb-8">
 
     ${post.starred ? `
       <div class="flex items-center gap-2 bg-white-50 border border-black-400 
-                  text-black w-fit px-3 py-1 rounded-lg">
+                  text-black w-fit px-3 py-1 rounded-lg whitespace-nowrap">
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
             stroke-width="1.5" stroke="currentColor"
             class="w-4 h-4 text-black-400">
@@ -27,19 +27,20 @@ if (!postId) {
 
     ${post.explicit ? `
       <div class="flex items-center gap-2 bg-white-50 border border-black-400 
-                  text-black w-fit px-3 py-1 rounded-lg">
+                  text-black w-fit px-3 py-1 rounded-lg whitespace-nowrap">
         <img src="./assets/explicit.svg" alt="Explicit Content" class="w-4 h-4" />
         <span class="text-sm">Explicit content</span>
       </div>
     ` : ''}
 
-        ${post.audio ? `
+    ${post.audio ? `
       <div class="flex items-center gap-2 bg-white-50 border border-black-400 
-                  text-black w-fit px-3 py-1 rounded-lg">
+                  text-black w-fit px-3 py-1 rounded-lg whitespace-nowrap">
         <img src="./assets/audio.svg" alt="Audio available" class="w-4 h-4" />
         <span class="text-sm">Audio available</span>
       </div>
     ` : ''}
+
   </div>
 
   <h1 class="text-3xl md:text-4xl font-bold mb-2">${post.title}</h1>
@@ -49,6 +50,7 @@ if (!postId) {
     ${post.content}
   </div>
 `;
+
       setTimeout(() => article.classList.add("opacity-100"), 50);
     })
     .catch(() => {

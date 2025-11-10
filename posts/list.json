@@ -5,7 +5,7 @@
     "date": "2025-11-09",
     "excerpt": "Just me trying to make sense of my thoughts.",
     "starred": true,
-    "explicit": false,
-    "audio": false
+    "explicit": true,
+    "audio": true
   }
 ]
