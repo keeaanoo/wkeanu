@@ -41,10 +41,10 @@ article.innerHTML = `
       </div>
     ` : ''}
 
-        ${post.edited ? `
+    ${post.edited ? `
       <div class="flex items-center gap-2 bg-white-50 border border-black-400 
                   text-black w-fit px-3 py-1 rounded-lg whitespace-nowrap">
-        <img src="./assets/audio.svg" alt="Audio available" class="w-4 h-4" />
+        <img src="./assets/edited.svg" alt="Audio available" class="w-4 h-4" />
         <span class="text-sm">Edited</span>
       </div>
     ` : ''}
