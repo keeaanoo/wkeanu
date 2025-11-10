@@ -5,7 +5,7 @@ fetch('posts/list.json')
 container.innerHTML = posts.map(post => `
 <a href="post.html?id=${post.id}" class="block px-5 py-5 hover:bg-gray-50 transition">
   <div class="flex items-center justify-between">
-    <h3 class="text-lg font-bold text-gray-800 hover:text-black">${post.title}</h3>
+    <h3 class="text-lg font-extrabold text-gray-800 hover:text-black">${post.title}</h3>
     
     <div class="flex items-center space-x-2 ml-2">
       ${post.starred ? `
@@ -45,8 +45,8 @@ container.innerHTML = posts.map(post => `
 
   
 
-  <p class="text-sm text-gray-500 mb-3">${post.date}</p>
-  <p class="text-gray-500 text-bold mt-1">${post.excerpt}</p>
+  <h2 class="text-sm text-gray-500 mb-3">${post.date}</h2>
+  <h2 class="text-gray-400 text-bold mt-1">${post.excerpt}</h2>
 </a>
 
 
