@@ -30,7 +30,7 @@ if (!postId) {
       <div class="flex items-center gap-2 bg-white-50 border border-black-400 
                   text-black w-fit px-3 py-1 rounded-lg whitespace-nowrap">
         <img src="./assets/explicit.svg" alt="Explicit Content" class="w-4 h-4" />
-        <span class="text-sm">Explicit content</span>
+        <span class="text-sm">Explicit</span>
       </div>
     ` : ''}
 
