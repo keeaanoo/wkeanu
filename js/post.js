@@ -80,7 +80,7 @@ if (!postId) {
   </div>
   ` : ''}
 
-  <div class="text-gray-800 leading-relaxed space-y-4">
+  <div class="border-b pb-8 text-gray-800 leading-relaxed space-y-4">
     ${post.content}
   </div>
 `;
