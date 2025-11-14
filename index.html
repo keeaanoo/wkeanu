@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ✅ Fonts -->
+  <!--  Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
 
-  <!-- ✅ Font styles -->
+  <!--  Font styles -->
   <style>
     body, p {
       font-family: "Source Serif 4", serif;
@@ -26,23 +26,19 @@
 
 <body class="flex flex-col min-h-screen text-gray-800 font-sans">
 
-  <!-- ✅ Header -->
+  <!--  Header -->
   <header class="sticky top-0 z-20 border-b bg-white/80 backdrop-blur-sm transition-all duration-200">
     <div class="max-w-5xl mx-auto flex justify-between items-center py-4 px-4">
       <h1 class="text-xl font-extrabold">
         <img src="./assets/wK logo.svg" alt="Logo" class="w-7 h-7" />
       </h1>
       <a href="https://www.instagram.com/uukeanu/" class="px-1 py-1 rounded text-sm text-black hover:text-gray-700 transition">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-          stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="M7.5 2.25h9A5.25 5.25 0 0 1 21.75 7.5v9a5.25 5.25 0 0 1-5.25 5.25h-9A5.25 5.25 0 0 1 2.25 16.5v-9A5.25 5.25 0 0 1 7.5 2.25zm9.75 4.5h.008v.008H17.25V6.75zM12 8.25a3.75 3.75 0 1 1 0 7.5 3.75 3.75 0 0 1 0-7.5z" />
-        </svg>
+
       </a>
     </div>
   </header>
 
-  <!-- ✅ Main -->
+  <!--  Main -->
   <main class="flex-grow max-w-4xl mx-auto px-6 py-12 text-center">
 
     <!-- Intro -->
@@ -67,7 +63,7 @@
     </div>
 
 
-    <!-- ✅ Filter + Posts -->
+    <!--  Filter + Posts -->
     <section id="posts-section" class="text-left max-w-3xl mx-auto">
       <!-- Filter bar injected by main.js -->
       <section id="posts" class="divide-y divide-gray-200 border-t"></section>
@@ -75,12 +71,12 @@
 
   </main>
 
-  <!-- ✅ Footer -->
+  <!--  Footer -->
   <footer class="border-t bg-gray-80 text-center text-sm text-gray-500 py-6">
     © 2025 Got thoughts about my thoughts? DM me — I like a good discussion.
   </footer>
 
-  <!-- ✅ Header blur on scroll -->
+  <!--  Header blur on scroll -->
   <script>
     window.addEventListener('scroll', () => {
       const header = document.querySelector('header');
@@ -92,7 +88,7 @@
     });
   </script>
 
-  <!-- ✅ Main script -->
+  <!--  Main script -->
   <script src="js/main.js"></script>
 
 </body>
