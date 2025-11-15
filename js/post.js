@@ -50,6 +50,13 @@ if (!postId) {
       </div>
     ` : ''}
 
+    ${post.spiritual ? `
+      <div class="flex items-center gap-2 bg-white-50 border border-black-400 
+                  text-black w-fit px-3 py-1 rounded-lg whitespace-nowrap">
+        <span class="text-sm">Spiritual</span>
+      </div>
+    ` : ''}
+
   </div>
 
   <h1 class="text-3xl md:text-4xl font-black mb-1">${post.title}</h1>

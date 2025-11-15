@@ -11,6 +11,7 @@ fetch('posts/list.json')
       { key: "starred", label: "Marked by Keanu" },
       { key: "audio", label: "Audio available" },
       { key: "explicit", label: "Explicit" },
+      { key: "spiritual", label: "Spiritual" },
     ];
 
     const activeFilters = new Set();
@@ -79,6 +80,16 @@ fetch('posts/list.json')
       }
       ${
         post.explicit
+          ? `<span class="relative group inline-block">
+              <img src="./assets/explicit.svg" alt="Explicit Content" class="w-4 h-4" />
+              <span class="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-black text-white text-xs px-2 py-1 rounded opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all whitespace-nowrap shadow-md pointer-events-none">
+                Explicit
+              </span>
+            </span>`
+          : ""
+      }
+      ${
+        post.spiritual
           ? `<span class="relative group inline-block">
               <img src="./assets/explicit.svg" alt="Explicit Content" class="w-4 h-4" />
               <span class="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-black text-white text-xs px-2 py-1 rounded opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all whitespace-nowrap shadow-md pointer-events-none">

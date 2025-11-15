@@ -9,5 +9,18 @@
     "explicit": false,
     "audio": true,
     "edited": true
+  },
+  {
+    "id": 2,
+    "title": "Talking to He Who Knows",
+    "date": "Nov 13, 2025",
+    "excerpt": "A lil something about venting to Allah and not feeling so lost after.",
+    
+    "starred": false,
+    "explicit": false,
+    "audio": false,
+    "edited": false,
+
+    "spiritual": true
   }
 ]
