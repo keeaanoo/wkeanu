@@ -61,7 +61,7 @@ if (!postId) {
 
   <h1 class="text-3xl md:text-4xl font-black mb-1">${post.title}</h1>
   <h2 class="text-gray-500 mb-2 pb-4">${post.date}</h2>
-    <h2 class="text-gray-400 mb-4 border-b pb-4">${post.excerpt}</h2>
+  <h2 class="text-gray-400 mb-4 border-b pb-4">${post.excerpt}</h2>
 
   ${post.audioFile ? `
   <div id="audio-player" class="w-full mb-6 mt-6 flex gap-1.5 items-center py-2 pr-7 pl-2.5 border rounded-xl bg-gray-50">
