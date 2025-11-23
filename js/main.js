@@ -12,7 +12,7 @@ fetch('posts/list.json')
       { key: "audio", label: "Audio available" },
       { key: "explicit", label: "Explicit" },
       { key: "spiritual", label: "Spiritual" },
-      { key: "nonsense", label: "Nonsense" },
+      { key: "nonsense", label: "Bunch of nonsense innit" },
       { key: "music", label: "Music" },
     ];
 
