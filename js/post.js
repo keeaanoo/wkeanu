@@ -18,7 +18,7 @@ if (!postId) {
                   text-black w-fit px-3 py-1 rounded-lg whitespace-nowrap">
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
             stroke-width="1.5" stroke="currentColor"
-            class="w-4 h-4 text-black-400">
+            class="w-4 h-4 text-blue-400">
             <path stroke-linecap="round" stroke-linejoin="round"
               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.04 5.135a.563.563 0 0 0 .475.347l5.404.406a.563.563 0 0 1 .32.982l-4.118 3.453a.563.563 0 0 0-.182.557l1.28 5.272a.563.563 0 0 1-.84.61l-4.646-2.826a.563.563 0 0 0-.586 0l-4.646 2.826a.563.563 0 0 1-.84-.61l1.28-5.272a.563.563 0 0 0-.182-.557L2.281 10.37a.563.563 0 0 1 .32-.982l5.404-.406a.563.563 0 0 0 .475-.347l2.04-5.135z"/>
         </svg>
@@ -64,13 +64,13 @@ if (!postId) {
   <h2 class="text-gray-400 mb-4 border-b pb-4">${post.excerpt}</h2>
 
   ${post.audioFile ? `
-  <div id="audio-player" class="w-full mb-6 mt-6 flex gap-1.5 items-center py-2 pr-7 pl-2.5 border rounded-xl bg-gray-50">
+  <div id="audio-player" class="w-full mb-6 mt-6 flex gap-1.5 items-center py-2 pr-7 pl-2.5 border rounded-xl bg-gray-20">
 
 <button id="play-btn"
   class="w-12 h-12 flex items-center justify-center rounded-full mx-0
          focus:outline-none focus:ring-0 active:outline-none active:ring-0
          [ -webkit-tap-highlight-color: transparent; ]">
-  <img id="play-icon" src="./assets/play.svg" class="w-5 h-5" />
+  <img id="play-icon" src="./assets/play.svg" class="w-8 h-8" />
 </button>
 
     <div class="flex-1">
