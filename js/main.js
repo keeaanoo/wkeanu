@@ -102,7 +102,7 @@ fetch('posts/list.json')
         .join("");
 
       if (filtered.length === 0) {
-        container.innerHTML = `<p class="item-center text-gray-500 text-center py-6">No posts match selected filters.</p>`;
+        container.innerHTML = `<p class="text-gray-500 text-center py-6">No posts match selected filters.</p>`;
       }
     }
 

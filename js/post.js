@@ -11,7 +11,7 @@ if (!postId) {
       const article = document.getElementById('post');
 
       article.innerHTML = `
-  <div class="flex flex-wrap items-center gap-2 mb-8">
+  <div class="relative flex flex-wrap items-center gap-2 mb-8">
 
     ${post.starred ? `
       <div class="flex items-center gap-2 bg-white-50 border border-black-400 
@@ -64,7 +64,7 @@ if (!postId) {
   <h2 class="text-gray-400 mb-4 border-b pb-4">${post.excerpt}</h2>
 
   ${post.audioFile ? `
-  <div id="audio-player" class="w-full mb-6 mt-6 flex gap-1.5 items-center py-2 pr-7 pl-2.5 border rounded-xl bg-gray-20">
+  <div id="audio-player" class="absolute z-10 sticky top-20 w-full mb-6 mt-6 flex gap-1.5 items-center py-2 pr-7 pl-2.5 border rounded-xl bg-white shadow-md">
 
 <button id="play-btn"
   class="w-12 h-12 flex items-center justify-center rounded-full mx-0
@@ -93,7 +93,8 @@ if (!postId) {
 `;
 
       // Fade in
-      setTimeout(() => article.classList.add("opacity-100"), 50);
+      setTimeout(() => article.classList.add("opacity-100"), 80);
+
 
       // AUDIO SCRIPT
       const audio = document.getElementById("audio");
