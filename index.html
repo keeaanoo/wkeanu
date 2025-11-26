@@ -17,7 +17,24 @@
     h1, h2, h3 {
       font-family: "Inter Tight", sans-serif;
     }
+
+    @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
   </style>
+
+  
 
   <title>wkeanu</title>
   <link rel="icon" type="image/svg+xml" href="./assets/wK logo.svg" />
@@ -49,13 +66,13 @@
       <img src="assets/image/hiya-good.gif" class="size-30">
     </div>
 
-    <p class="text-gray-600 leading-relaxed max-w-3xl mx-auto">
+    <p class="text-gray-700 leading-relaxed max-w-3xl mx-auto">
       Greetings, people. don’t really know why you’re here — maybe curiosity, maybe boredom, maybe a wrong click.
       But since you’ve made it this far, welcome to my corner of the internet. Here you’ll find my thoughts — sometimes deep,
       sometimes nonsense, often somewhere in between.
     </p>
 
-    <h3 class="italic text-sm text-gray-500 mt-4 mb-8 mx-8">
+    <h3 class="italic text-sm text-gray-500 mt-4 mb-8 mx-6">
       Fair warning tho: some of what I write might sting a little, so you might want to grab a helmet. Feelings are fragile
       things, and honesty can be heavier than expected.
     </h3>
@@ -67,15 +84,18 @@
 
 
     <!--  Filter + Posts -->
-    <section id="posts-section" class="text-left max-w-3xl mx-auto mb-4 h-[500px]">
+    <section id="posts-section" class="text-left max-w-3xl mx-auto mb-4 min-h-[700px]">
       <!-- Filter bar injected by main.js -->
       <section id="posts" class="divide-y divide-gray-200 border-t"></section>
     </section>
 
+
+      <p class="text-gray-500 mt-[70px]">Got thoughts about my thoughts? <a href="https://www.instagram.com/uukeanu/" target="_blank"   rel="noopener noreferrer" class="text-gray-700 font-bold">Dm me </a>i like a good discussion;)<p>
+
   </main>
 
   <!--  Footer -->
-  <footer class="border-t bg-white text-center text-sm text-gray-500 py-6 mt-10">
+  <footer class="border-t bg-white text-center text-sm text-gray-500 py-6 mt-4">
     © 2025 wkeanu
   </footer>
 

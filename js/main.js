@@ -12,8 +12,13 @@ fetch('posts/list.json')
       { key: "audio", label: "Audio available" },
       { key: "explicit", label: "Explicit" },
       { key: "spiritual", label: "Spiritual" },
-      { key: "nonsense", label: "Bunch of nonsense innit" },
       { key: "music", label: "Music" },
+      { key: "hobby", label: "Hobby" },
+      { key: "ponder", label: "Shower toughts" },
+      { key: "nonsense", label: "Bunch of nonsense innit" },
+      
+
+
     ];
 
     const activeFilters = new Set();
@@ -22,8 +27,8 @@ fetch('posts/list.json')
       const btn = document.createElement('button');
       btn.textContent = f.label;
       btn.className =
-        "text-sm border border-gray-300 rounded-full px-3 py-1 transition " +
-        "hover:bg-gray-100 data-[active=true]:bg-black data-[active=true]:text-white";
+        "text-sm border border-gray-300 shadow-md rounded-full px-3 py-1 transition" +
+        "hover:bg-gray-100 data-[active=true]:bg-gray-800 data-[active=true]:text-white";
 
       btn.dataset.active = "false";
 
@@ -39,20 +44,20 @@ fetch('posts/list.json')
     });
 
     // --- Render posts ---
-    function renderPosts() {
-      let filtered = [...posts];
-      if (activeFilters.size > 0) {
-        filtered = filtered.filter(post =>
-          Array.from(activeFilters).every(key => post[key])
-        );
-      }
+function renderPosts() {
+  let filtered = [...posts];
+  if (activeFilters.size > 0) {
+    filtered = filtered.filter(post =>
+      Array.from(activeFilters).every(key => post[key])
+    );
+  }
 
-      container.innerHTML = filtered
-        .map(
-          post => `
-<a href="post.html?id=${post.id}" class="block px-5 py-5 hover:bg-gray-50 transition">
+  container.innerHTML = filtered
+    .map(
+      (post, index) => `
+<a href="post.html?id=${post.id}" class="block px-5 py-5 hover:bg-gray-50 transition opacity-0 animate-fade-in" style="animation-delay: ${index * 50}ms">
   <div class="flex items-center justify-between">
-    <h3 class="text-lg font-extrabold text-gray-800 hover:text-black">${post.title}</h3>
+    <h3 class="text-lg font-extrabold text-black hover:text-black">${post.title}</h3>
 
     <div class="flex items-center space-x-2 ml-2">
       ${
@@ -98,13 +103,13 @@ fetch('posts/list.json')
   <h2 class="text-gray-400 text-bold mt-1">${post.excerpt}</h2>
 </a>
 `
-        )
-        .join("");
+    )
+    .join("");
 
-      if (filtered.length === 0) {
-        container.innerHTML = `<p class="text-gray-500 text-center py-6">No posts match selected filters.</p>`;
-      }
-    }
+  if (filtered.length === 0) {
+    container.innerHTML = `<p class="text-gray-500 text-center py-6 mt-4 opacity-0 animate-fade-in">No posts match selected filters.</p>`;
+  }
+}
 
     // --- Insert filter bar before posts ---
     container.parentNode.insertBefore(filterBar, container);
@@ -113,3 +118,4 @@ fetch('posts/list.json')
     renderPosts();
   })
   .catch(err => console.error("Error loading posts:", err));
+
