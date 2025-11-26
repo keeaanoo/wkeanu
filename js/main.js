@@ -55,7 +55,7 @@ function renderPosts() {
   container.innerHTML = filtered
     .map(
       (post, index) => `
-<a href="post.html?id=${post.id}" class="block px-5 py-5 hover:bg-gray-50 transition opacity-0 animate-fade-in" style="animation-delay: ${index * 50}ms">
+<a href="post.html?id=${post.id}" class="block px-5 py-5 hover:bg-gray-50 transition opacity-0 animate-fade-in" style="animation-delay: ${index * 70}ms">
   <div class="flex items-center justify-between">
     <h3 class="text-lg font-extrabold text-black hover:text-black">${post.title}</h3>
 
