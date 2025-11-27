@@ -27,7 +27,7 @@ fetch('posts/list.json')
       const btn = document.createElement('button');
       btn.textContent = f.label;
       btn.className =
-        "text-sm border border-gray-300 shadow-md rounded-full px-3 py-1 transition" +
+        "text-sm border border-gray-200 shadow-md rounded-full px-3 py-1 transition" +
         "hover:bg-gray-100 data-[active=true]:bg-gray-800 data-[active=true]:text-white";
 
       btn.dataset.active = "false";
