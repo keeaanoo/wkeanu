@@ -5,13 +5,19 @@ fetch('posts/list.json')
     const checkboxes = document.querySelectorAll('input[data-filter]');
     const tagsContainer = document.getElementById('tags-container');
     
+    // Get count elements
+    const showingCountElement = document.getElementById('showing-count');
+    const totalCountElement = document.getElementById('total-count');
+    
     // Define tags
     const tags = [
+      { key: "nonsense", label: "Bunch of nonsense innit" },
       { key: "spiritual", label: "Spiritual" },
       { key: "music", label: "Music" },
-      { key: "hobby", label: "Hobby" },
+      { key: "art", label: "Art" },
       { key: "ponder", label: "Shower thoughts" },
-      { key: "nonsense", label: "Bunch of nonsense innit" }
+      { key: "hobby", label: "Hobby" }
+
     ];
 
     // Active filters
@@ -29,6 +35,14 @@ fetch('posts/list.json')
       document.getElementById('audio-posts').textContent = audioPosts;
       document.getElementById('starred-posts').textContent = starredPosts;
       document.getElementById('explicit-posts').textContent = explicitPosts;
+      
+      // Update total count
+      totalCountElement.textContent = total;
+    }
+
+    // Update showing count
+    function updateShowingCount(count) {
+      showingCountElement.textContent = count;
     }
 
     // Create tag buttons
@@ -88,6 +102,9 @@ fetch('posts/list.json')
         );
       }
 
+      // Update showing count
+      updateShowingCount(filtered.length);
+
       container.innerHTML = filtered
         .map(
           (post, index) => `
@@ -132,7 +149,7 @@ fetch('posts/list.json')
         .join("");
 
       if (filtered.length === 0) {
-        container.innerHTML = `<p class="text-gray-500 text-center py-8 border border-gray-200 rounded-lg opacity-0 animate-fade-in">No posts match selected filters.</p>`;
+        container.innerHTML = `<p class="text-gray-500 text-center py-8 mt-8 opacity-0 animate-fade-in">No posts match selected filters.</p>`;
       }
     }
 
