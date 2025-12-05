@@ -44,7 +44,7 @@
 
   <!-- Header -->
   <header class="sticky top-0 z-20 border-b bg-white/80 backdrop-blur-sm transition-all duration-200">
-    <div class="max-w-none mx-auto flex justify-between items-center py-4 px-8">
+    <div class="max-w-none mx-auto flex justify-between items-center py-4 px-4">
       <h1 class="text-xl font-extrabold">
         <img src="./assets/wK logo.svg" alt="Logo" class="w-7 h-7" />
       </h1>
@@ -74,31 +74,33 @@
             sometimes nonsense, often somewhere in between.
           </p>
 
-          <h3 class="italic text-sm text-gray-500 mt-4 mb-2 border-b pb-6">
+          <h3 class="italic text-sm text-gray-500 mt-4 mb-2 border-b pb-6 pr-2">
             Fair warning tho: some of what I write might sting a little, so you might want to grab a helmet. Feelings are fragile
             things, and honesty can be heavier than expected.
           </h3>
         </div>
 
         <!-- Stats Section -->
-        <h2 class="font-bold mt-4">Posts</h2>
-        <div class="border border-gray-200 rounded-lg py-4 px-4 mb-8 mt-4">
+        <h1 class="font-black mt-4 text-lg">Posts</h1>
+        <div class="border rounded-lg border-gray-200 py-4 px-4 mb-8 mt-4">
           <h3 class="text-lg font-bold mb-4">By the number</h3>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-            <div class="text-left border rounded-md py-2 pl-4">
-              <div class="text-2xl font-bold text" id="total-posts">0</div>
+
+            <div class="bg-gray-100 text-left border-l-2 rounded-lg border-gray-300 py-2 pl-4">
+              <p class="text-4xl font-black" id="total-posts">0</p>
               <div class="text-sm text-gray-600">Total Posts</div>
             </div>
-            <div class="text-left border rounded-md py-2 pl-4">
-              <div class="text-2xl font-bold" id="audio-posts">0</div>
-              <div class="text-sm text-gray-600">With audio</div>
-            </div>
-            <div class="text-left border rounded-md py-2 pl-4">
-              <div class="text-2xl font-bold" id="starred-posts">0</div>
+            <div class="bg-blue-100 text-left border-l-2 rounded-lg border-blue-400 py-2 pl-4">
+              <p class="text-4xl font-black" id="starred-posts">0</p>
               <div class="text-sm text-gray-600">Marked</div>
             </div>
-            <div class="text-left border rounded-md py-2 pl-4">
-              <div class="text-2xl font-bold" id="explicit-posts">0</div>
+            <div class="bg-gray-100 text-left border-l-2 rounded-lg border-gray-300 py-2 pl-4">
+              <p class="text-4xl font-black" id="audio-posts">0</p>
+              <div class="text-sm text-gray-600">With audio</div>
+            </div>
+
+            <div class="bg-gray-100 text-left border-l-2 rounded-lg border-gray-300 py-2 pl-4">
+              <p class="text-4xl font-black" id="explicit-posts">0</p>
               <div class="text-sm text-gray-600">Explicit</div>
             </div>
           </div>
@@ -118,10 +120,10 @@
       </section>
 
       <!-- Right Sidebar (1/3 width) -->
-      <aside class="lg:w-1/3 lg:pl-4 lg:border-l min-h-screen">
+      <aside class="lg:w-1/3 lg:pl-4 lg:border-l">
         <!-- Filter Section -->
         <div class="sticky top-24">
-          <div class="bg-white border-b border-gray-200 rounded-lg p-6 pt-2 mb-6">
+          <div class="bg-white border-gray-200 rounded-lg p-6 pt-2 mb-6">
             <h3 class="text-lg font-bold mb-4">Filter Posts</h3>
             
             <!-- Checkboxes -->
@@ -158,6 +160,7 @@
             <div id="tags-container" class="flex flex-wrap gap-2">
               <!-- Tags will be injected by JavaScript -->
             </div>
+            
           </div>
         </div>
       </aside>

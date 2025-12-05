@@ -91,7 +91,7 @@ fetch('posts/list.json')
       container.innerHTML = filtered
         .map(
           (post, index) => `
-<a href="post.html?id=${post.id}" class="block p-5 border-b border-gray-200 hover:shadow-sm transition-all opacity-0 animate-fade-in" style="animation-delay: ${index * 70}ms">
+<a href="post.html?id=${post.id}" class="block p-5 border-b border-gray-200 hover:shadow-md transition-all opacity-0 animate-fade-in" style="animation-delay: ${index * 70}ms">
   <div class="flex items-start justify-between">
     <div class="flex-1">
       <h3 class="text-xl font-extrabold text-black mb-2">${post.title}</h3>
@@ -108,18 +108,13 @@ fetch('posts/list.json')
         ` : ''}
         
         ${post.explicit ? `
-          <div class="flex border py-2 px-4 rounded-full items-center space-x-1 text-red-600">
+          <div class="flex border py-2 px-4 rounded-full items-center space-x-1 text-gray-600">
             <img src="./assets/explicit.svg" alt="Explicit Content" class="w-4 h-4">
             <span class="text-xs">Explicit</span>
           </div>
         ` : ''}
         
-        ${post.edited ? `
-          <div class="flex border py-2 px-4 rounded-full items-center space-x-1 text-gray-600">
-            <img src="./assets/edited.svg" alt="Edited" class="w-4 h-4">
-            <span class="text-xs">Edited</span>
-          </div>
-        ` : ''}
+
       </div>
     </div>
     
