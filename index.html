@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!--  Fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
 
-  <!--  Font styles -->
+  <!-- Font styles -->
   <style>
     body, p {
       font-family: "Source Serif 4", serif;
@@ -19,22 +19,20 @@
     }
 
     @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+      from {
+        opacity: 0;
+        transform: translateY(5px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-.animate-fade-in {
-  animation: fadeIn 0.5s ease-in-out forwards;
-}
+    .animate-fade-in {
+      animation: fadeIn 0.5s ease-in-out forwards;
+    }
   </style>
-
-  
 
   <title>wkeanu</title>
   <link rel="icon" type="image/svg+xml" href="./assets/wK logo.svg" />
@@ -44,62 +42,134 @@
 
 <body class="flex flex-col min-h-screen text-gray-800 font-sans">
 
-  <!--  Header -->
+  <!-- Header -->
   <header class="sticky top-0 z-20 border-b bg-white/80 backdrop-blur-sm transition-all duration-200">
-    <div class="max-w-5xl mx-auto flex justify-between items-center py-4 px-4">
+    <div class="max-w-none mx-auto flex justify-between items-center py-4 px-8">
       <h1 class="text-xl font-extrabold">
         <img src="./assets/wK logo.svg" alt="Logo" class="w-7 h-7" />
       </h1>
     </div>
   </header>
 
-  <!--  Main -->
-  <main class="flex-grow max-w-4xl mx-auto px-6 py-10 text-center">
+  <!-- Main Content with Two Columns -->
+  <main class="flex-grow max-w-6xl mx-auto px-6">
+    <div class="flex flex-col lg:flex-row gap-[70px]">
+      <!-- Main Section (Left - 2/3 width) -->
+      <section class="lg:w-2/3">
+        <!-- Intro -->
+        <div class="text-left mb-2 mt-8">
 
-    <!-- Intro -->
-    <h2 class="font-alfa text-4xl text-black font-black mb-4">
-      Thoughts. Unfiltered. Possibly concerning.
-    </h2>
+          <div class="flex flex-col items-left my-4">
+            <img src="assets/image/hiya-good.gif" class="size-30">
+          </div>
+
+          <h2 class="font-alfa text-4xl text-black font-black mb-4">
+            Thoughts. Unfiltered. Possibly concerning.
+          </h2>
 
 
-    <div class="flex flex-col items-center my-4">
-      <img src="assets/image/hiya-good.gif" class="size-30">
+          <p class="text-gray-700 max-w-none">
+            Greetings, people. don't really know why you're here — maybe curiosity, maybe boredom, maybe a wrong click.
+            But since you've made it this far, welcome to my corner of the internet. Here you'll find my thoughts — sometimes deep,
+            sometimes nonsense, often somewhere in between.
+          </p>
+
+          <h3 class="italic text-sm text-gray-500 mt-4 mb-2 border-b pb-6">
+            Fair warning tho: some of what I write might sting a little, so you might want to grab a helmet. Feelings are fragile
+            things, and honesty can be heavier than expected.
+          </h3>
+        </div>
+
+        <!-- Stats Section -->
+        <h2 class="font-bold mt-4">Posts</h2>
+        <div class="border border-gray-200 rounded-lg py-4 px-4 mb-8 mt-4">
+          <h3 class="text-lg font-bold mb-4">By the number</h3>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+            <div class="text-left border rounded-md py-2 pl-4">
+              <div class="text-2xl font-bold text" id="total-posts">0</div>
+              <div class="text-sm text-gray-600">Total Posts</div>
+            </div>
+            <div class="text-left border rounded-md py-2 pl-4">
+              <div class="text-2xl font-bold" id="audio-posts">0</div>
+              <div class="text-sm text-gray-600">With audio</div>
+            </div>
+            <div class="text-left border rounded-md py-2 pl-4">
+              <div class="text-2xl font-bold" id="starred-posts">0</div>
+              <div class="text-sm text-gray-600">Marked</div>
+            </div>
+            <div class="text-left border rounded-md py-2 pl-4">
+              <div class="text-2xl font-bold" id="explicit-posts">0</div>
+              <div class="text-sm text-gray-600">Explicit</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Posts -->
+        <section id="posts-section" class="mb-4 min-h-screen">
+          <div id="posts" class="space-y-4"></div>
+        </section>
+
+        
+
+        <div class="mt-12 pt-8 mb-8">
+          <p class="text-gray-500 mt-4 text-center">Got thoughts about my thoughts? <a href="https://www.instagram.com/uukeanu/" target="_blank" rel="noopener noreferrer" class="text-gray-800 font-bold">Dm me </a></p>
+          <p class="text-gray-500 text-center">I like a good discussion</p>
+        </div>
+      </section>
+
+      <!-- Right Sidebar (1/3 width) -->
+      <aside class="lg:w-1/3 lg:pl-4 lg:border-l">
+        <!-- Filter Section -->
+        <div class="sticky top-24">
+          <div class="bg-white border-b border-gray-200 rounded-lg p-6 pt-2 mb-6">
+            <h3 class="text-lg font-bold mb-4">Filter Posts</h3>
+            
+            <!-- Checkboxes -->
+            <div class="space-y-3 mb-6">
+              <label class="flex items-center space-x-3 cursor-pointer">
+                <input type="checkbox" data-filter="starred" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                <div class="flex items-center space-x-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-blue-400">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.04 5.135a.563.563 0 0 0 .475.347l5.404.406a.563.563 0 0 1 .32.982l-4.118 3.453a.563.563 0 0 0-.182.557l1.28 5.272a.563.563 0 0 1-.84.61l-4.646-2.826a.563.563 0 0 0-.586 0l-4.646 2.826a.563.563 0 0 1-.84-.61l1.28-5.272a.563.563 0 0 0-.182-.557L2.281 10.37a.563.563 0 0 1 .32-.982l5.404-.406a.563.563 0 0 0 .475-.347l2.04-5.135z"/>
+                  </svg>
+                  <span class="text-sm">Marked by Keanu</span>
+                </div>
+              </label>
+              
+              <label class="flex items-center space-x-3 cursor-pointer">
+                <input type="checkbox" data-filter="audio" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                <div class="flex items-center space-x-2">
+                  <img src="./assets/audio.svg" alt="Audio Available" class="w-4 h-4">
+                  <span class="text-sm">Audio Available</span>
+                </div>
+              </label>
+              
+              <label class="flex items-center space-x-3 cursor-pointer">
+                <input type="checkbox" data-filter="explicit" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                <div class="flex items-center space-x-2">
+                  <img src="./assets/explicit.svg" alt="Explicit Content" class="w-4 h-4">
+                  <span class="text-sm">Explicit Content</span>
+                </div>
+              </label>
+            </div>
+
+            <!-- Tags Section -->
+            <h4 class="text-md font-bold mb-3">Tags</h4>
+            <div id="tags-container" class="flex flex-wrap gap-2">
+              <!-- Tags will be injected by JavaScript -->
+            </div>
+          </div>
+        </div>
+      </aside>
     </div>
-
-    <p class="text-gray-700 leading-relaxed max-w-3xl mx-auto">
-      Greetings, people. don’t really know why you’re here — maybe curiosity, maybe boredom, maybe a wrong click.
-      But since you’ve made it this far, welcome to my corner of the internet. Here you’ll find my thoughts — sometimes deep,
-      sometimes nonsense, often somewhere in between.
-    </p>
-
-    <h3 class="italic text-sm text-gray-500 mt-4 mb-8 mx-8">
-      Fair warning tho: some of what I write might sting a little, so you might want to grab a helmet. Feelings are fragile
-      things, and honesty can be heavier than expected.
-    </h3>
-
-    <div class="flex flex-col items-center mt-10">
-      <h3 class="text-sm text-gray-500 mb-3">Filter posts:</h3>
-      <div id="filter-container" class="flex flex-wrap justify-center gap-2"></div>
-    </div>
-
-
-    <!--  Filter + Posts -->
-    <section id="posts-section" class="text-left max-w-3xl mx-auto mb-4 min-h-[700px]">
-      <!-- Filter bar injected by main.js -->
-      <section id="posts" class="divide-y divide-gray-200 border-t"></section>
-    </section>
-
-      <p class="text-gray-500">|</p>
-      <p class="text-gray-500 mt-[70px]">Got thoughts about my thoughts? <a href="https://www.instagram.com/uukeanu/" target="_blank"   rel="noopener noreferrer" class="text-gray-800 font-bold">Dm me </a></p>
-      <p class="text-gray-500">I like a good discussion</p>
   </main>
 
-  <!--  Footer -->
-  <footer class="border-t bg-white text-center text-sm text-gray-500 py-6 mt-4">
+  <!-- Footer -->
+  <footer class="border-t bg-white text-center text-sm text-gray-500 py-6">
     © 2025 wkeanu
   </footer>
 
-  <!--  Header blur on scroll -->
+  <!-- Header blur on scroll -->
   <script>
     window.addEventListener('scroll', () => {
       const header = document.querySelector('header');
@@ -111,7 +181,7 @@
     });
   </script>
 
-  <!--  Main script -->
+  <!-- Main script -->
   <script src="js/main.js"></script>
 
 </body>

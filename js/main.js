@@ -2,120 +2,147 @@ fetch('posts/list.json')
   .then(response => response.json())
   .then(posts => {
     const container = document.getElementById('posts');
-
-    // --- Create filter bar ---
-    const filterBar = document.createElement('div');
-    filterBar.className = "flex flex-wrap gap-2 mb-6";
-
-    const filters = [
-      { key: "starred", label: "Marked by Keanu" },
-      { key: "audio", label: "Audio available" },
-      { key: "explicit", label: "Explicit" },
+    const checkboxes = document.querySelectorAll('input[data-filter]');
+    const tagsContainer = document.getElementById('tags-container');
+    
+    // Define tags
+    const tags = [
       { key: "spiritual", label: "Spiritual" },
       { key: "music", label: "Music" },
       { key: "hobby", label: "Hobby" },
-      { key: "ponder", label: "Shower toughts" },
-      { key: "nonsense", label: "Bunch of nonsense innit" },
-      
-
-
+      { key: "ponder", label: "Shower thoughts" },
+      { key: "nonsense", label: "Bunch of nonsense innit" }
     ];
 
+    // Active filters
     const activeFilters = new Set();
+    const activeTags = new Set();
 
-    filters.forEach(f => {
-      const btn = document.createElement('button');
-      btn.textContent = f.label;
-      btn.className =
-        "text-sm border border-gray-200 shadow-md rounded-full px-3 py-1 transition" +
-        "hover:bg-gray-100 data-[active=true]:bg-gray-800 data-[active=true]:text-white";
+    // Calculate stats
+    function updateStats() {
+      const total = posts.length;
+      const audioPosts = posts.filter(p => p.audio).length;
+      const starredPosts = posts.filter(p => p.starred).length;
+      const explicitPosts = posts.filter(p => p.explicit).length;
+      
+      document.getElementById('total-posts').textContent = total;
+      document.getElementById('audio-posts').textContent = audioPosts;
+      document.getElementById('starred-posts').textContent = starredPosts;
+      document.getElementById('explicit-posts').textContent = explicitPosts;
+    }
 
-      btn.dataset.active = "false";
+    // Create tag buttons
+    tags.forEach(tag => {
+      const button = document.createElement('button');
+      button.textContent = tag.label;
+      button.className = "text-sm border border-gray-300 rounded-full px-3 py-1.5 hover:bg-gray-100 transition data-[active=true]:bg-gray-800 data-[active=true]:text-white";
+      button.dataset.active = "false";
+      button.dataset.tag = tag.key;
 
-      btn.addEventListener("click", () => {
-        const isActive = btn.dataset.active === "true";
-        btn.dataset.active = String(!isActive);
-        if (isActive) activeFilters.delete(f.key);
-        else activeFilters.add(f.key);
+      button.addEventListener('click', () => {
+        const isActive = button.dataset.active === "true";
+        button.dataset.active = String(!isActive);
+        
+        if (isActive) {
+          activeTags.delete(tag.key);
+        } else {
+          activeTags.add(tag.key);
+        }
+        
         renderPosts();
       });
 
-      filterBar.appendChild(btn);
+      tagsContainer.appendChild(button);
     });
 
-    // --- Render posts ---
-function renderPosts() {
-  let filtered = [...posts];
-  if (activeFilters.size > 0) {
-    filtered = filtered.filter(post =>
-      Array.from(activeFilters).every(key => post[key])
-    );
-  }
+    // Checkbox filter handlers
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', () => {
+        const filterKey = checkbox.dataset.filter;
+        
+        if (checkbox.checked) {
+          activeFilters.add(filterKey);
+        } else {
+          activeFilters.delete(filterKey);
+        }
+        
+        renderPosts();
+      });
+    });
 
-  container.innerHTML = filtered
-    .map(
-      (post, index) => `
-<a href="post.html?id=${post.id}" class="block px-5 py-5 hover:bg-gray-50 transition opacity-0 animate-fade-in" style="animation-delay: ${index * 70}ms">
-  <div class="flex items-center justify-between">
-    <h3 class="text-lg font-extrabold text-black hover:text-black">${post.title}</h3>
-
-    <div class="flex items-center space-x-2 ml-2">
-      ${
-        post.starred
-          ? `<span class="relative group inline-block">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                   viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                   class="w-4 h-4 text-blue-400">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.04 5.135a.563.563 0 0 0 .475.347l5.404.406a.563.563 0 0 1 .32.982l-4.118 3.453a.563.563 0 0 0-.182.557l1.28 5.272a.563.563 0 0 1-.84.61l-4.646-2.826a.563.563 0 0 0-.586 0l-4.646 2.826a.563.563 0 0 1-.84-.61l1.28-5.272a.563.563 0 0 0-.182-.557L2.281 10.37a.563.563 0 0 1 .32-.982l5.404-.406a.563.563 0 0 0 .475-.347l2.04-5.135z"/>
-              </svg>
-              <span class="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-black text-white text-xs px-2 py-1 rounded opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all whitespace-nowrap shadow-md pointer-events-none">
-                Marked by Keanu
-              </span>
-            </span>`
-          : ""
+    // Render posts
+    function renderPosts() {
+      let filtered = [...posts];
+      
+      // Apply checkbox filters (AND logic within same category)
+      if (activeFilters.size > 0) {
+        filtered = filtered.filter(post => 
+          Array.from(activeFilters).every(key => post[key])
+        );
       }
-      ${
-        post.audio
-          ? `<span class="relative group inline-block">
-              <img src="./assets/audio.svg" alt="Audio Available" class="w-4 h-4" />
-              <span class="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-black text-white text-xs px-2 py-1 rounded opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all whitespace-nowrap shadow-md pointer-events-none">
-                Audio Available
-              </span>
-            </span>`
-          : ""
-      }
-      ${
-        post.explicit
-          ? `<span class="relative group inline-block">
-              <img src="./assets/explicit.svg" alt="Explicit Content" class="w-4 h-4" />
-              <span class="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-black text-white text-xs px-2 py-1 rounded opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all whitespace-nowrap shadow-md pointer-events-none">
-                Explicit
-              </span>
-            </span>`
-          : ""
+      
+      // Apply tag filters (OR logic for tags)
+      if (activeTags.size > 0) {
+        filtered = filtered.filter(post => 
+          Array.from(activeTags).some(tag => post[tag])
+        );
       }
 
+      container.innerHTML = filtered
+        .map(
+          (post, index) => `
+<a href="post.html?id=${post.id}" class="block p-5 border-b border-gray-200 hover:shadow-sm transition-all opacity-0 animate-fade-in" style="animation-delay: ${index * 70}ms">
+  <div class="flex items-start justify-between">
+    <div class="flex-1">
+      <h3 class="text-xl font-extrabold text-black mb-2">${post.title}</h3>
+      <h3 class="text-sm text-gray-500 mb-2">${post.date}</h3>
+      <h3 class="text-gray-400 mb-4">${post.excerpt}</h3>
+      
+      <div class="flex items-center space-x-2">
+        
+        ${post.audio ? `
+          <div class="flex border py-2 px-4 rounded-full items-center space-x-1 text-gray-600">
+            <img src="./assets/audio.svg" alt="Audio Available" class="w-4 h-4">
+            <span class="text-xs">Audio</span>
+          </div>
+        ` : ''}
+        
+        ${post.explicit ? `
+          <div class="flex border py-2 px-4 rounded-full items-center space-x-1 text-red-600">
+            <img src="./assets/explicit.svg" alt="Explicit Content" class="w-4 h-4">
+            <span class="text-xs">Explicit</span>
+          </div>
+        ` : ''}
+        
+        ${post.edited ? `
+          <div class="flex border py-2 px-4 rounded-full items-center space-x-1 text-gray-600">
+            <img src="./assets/edited.svg" alt="Edited" class="w-4 h-4">
+            <span class="text-xs">Edited</span>
+          </div>
+        ` : ''}
+      </div>
+    </div>
+    
+    <div class="ml-4 flex items-center space-x-1">
+      ${post.starred ? `
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-blue-400">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.04 5.135a.563.563 0 0 0 .475.347l5.404.406a.563.563 0 0 1 .32.982l-4.118 3.453a.563.563 0 0 0-.182.557l1.28 5.272a.563.563 0 0 1-.84.61l-4.646-2.826a.563.563 0 0 0-.586 0l-4.646 2.826a.563.563 0 0 1-.84-.61l1.28-5.272a.563.563 0 0 0-.182-.557L2.281 10.37a.563.563 0 0 1 .32-.982l5.404-.406a.563.563 0 0 0 .475-.347l2.04-5.135z"/>
+        </svg>
+      ` : ''}
     </div>
   </div>
-
-  <h2 class="text-sm text-gray-500 mb-3">${post.date}</h2>
-  <h2 class="text-gray-400 text-bold mt-1">${post.excerpt}</h2>
 </a>
 `
-    )
-    .join("");
+        )
+        .join("");
 
-  if (filtered.length === 0) {
-    container.innerHTML = `<p class="text-gray-500 text-center py-6 mt-4 opacity-0 animate-fade-in">No posts match selected filters.</p>`;
-  }
-}
+      if (filtered.length === 0) {
+        container.innerHTML = `<p class="text-gray-500 text-center py-8 border border-gray-200 rounded-lg opacity-0 animate-fade-in">No posts match selected filters.</p>`;
+      }
+    }
 
-    // --- Insert filter bar before posts ---
-    container.parentNode.insertBefore(filterBar, container);
-
-    // --- Initial render ---
+    // Initial render and stats update
+    updateStats();
     renderPosts();
   })
   .catch(err => console.error("Error loading posts:", err));
-
