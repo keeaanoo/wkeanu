@@ -1,6 +1,39 @@
 const params = new URLSearchParams(window.location.search);
 const postId = params.get('id');
 
+// Daftar tags yang akan ditampilkan di halaman post (selain yang sudah ditangani khusus)
+const tagDefinitions = [
+  { key: "nonsense", label: "Bunch of nonsense innit" },
+  { key: "spiritual", label: "Spiritual" },
+  { key: "music", label: "Music" },
+  { key: "art", label: "Art" },
+  { key: "ponder", label: "Shower thoughts" },
+  { key: "hobby", label: "Hobby" }
+  // Tambahkan tag baru di sini nanti
+];
+
+// Tags yang sudah ditangani khusus (jangan ditampilkan lagi)
+const specialTags = ['starred', 'explicit', 'audio', 'edited'];
+
+// Fungsi untuk menghasilkan badge tags
+function generateTagBadges(post) {
+  let tagsHTML = '';
+  
+  tagDefinitions.forEach(tag => {
+    // Cek apakah tag ada di post dan nilainya true
+    if (post[tag.key] === true) {
+      tagsHTML += `
+        <div class="flex items-center gap-2 bg-white-50 border border-black-400 
+                    text-black w-fit px-3 py-1 rounded-lg whitespace-nowrap">
+          <span class="text-sm">${tag.label}</span>
+        </div>
+      `;
+    }
+  });
+  
+  return tagsHTML;
+}
+
 if (!postId) {
   document.getElementById('post').innerHTML = "<p>Post not found.</p>";
 } else {
@@ -9,6 +42,9 @@ if (!postId) {
     .then(post => {
       document.title = `${post.title} - wkeanu`;
       const article = document.getElementById('post');
+      
+      // Generate dynamic tag badges
+      const dynamicTagsHTML = generateTagBadges(post);
 
       article.innerHTML = `
   <div class="relative flex flex-wrap items-center gap-2 mb-8">
@@ -50,12 +86,8 @@ if (!postId) {
       </div>
     ` : ''}
 
-    ${post.spiritual ? `
-      <div class="flex items-center gap-2 bg-white-50 border border-black-400 
-                  text-black w-fit px-3 py-1 rounded-lg whitespace-nowrap">
-        <span class="text-sm">Spiritual</span>
-      </div>
-    ` : ''}
+    <!-- Tags dinamis -->
+    ${dynamicTagsHTML}
 
   </div>
 
