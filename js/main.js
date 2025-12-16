@@ -147,7 +147,7 @@ fetch('posts/list.json')
 <a href="post.html?id=${post.id}" class="block p-5 border-b border-gray-200 hover:shadow-md transition-all opacity-0 animate-fade-in" style="animation-delay: ${index * 70}ms">
   <div class="flex items-start justify-between">
     <div class="flex-1">
-      <h3 class="text-xl font-extrabold text-black mb-2">${post.title}</h3>
+      <h3 class="text-xl font-extrabold text-black">${post.title}</h3>
       <h3 class="text-sm text-gray-500 mb-2">${post.date}</h3>
       <h3 class="text-gray-400 mb-4">${post.excerpt}</h3>
       
